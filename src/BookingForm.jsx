@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import './BookingForm.css'
+import Confirmation from "./Confirmation";
 
 function BookingForm(props) {
     const [date,setDate]=useState(new Date())
@@ -9,6 +10,7 @@ function BookingForm(props) {
     const [finalTime, setFinalTime] = useState(
       props.availableTimes.map((times) => <option>{times}</option>)
     );
+    const [bool,setBool]=useState(false)
     const handleDateChange = (e) => {
       setDate(e.target.value);
       var stringify = e.target.value;
@@ -45,9 +47,10 @@ function BookingForm(props) {
                   <option>Anniversary</option>
               </select>
             </div>
-            <div ><Link to="/confirmation">
+            <Link to='/confirmation'>
               <button className=" p-2 rounded bg-primary-yellow m-5">Book Table</button>
-            </Link></div>
+            </Link>
+             
           </form>
       </div>
     )
